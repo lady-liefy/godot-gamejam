@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bkk87o2ooo6at"]
 
-[ext_resource type="Script" uid="uid://dbbi2tqjwmyji" path="res://ui/overlays/fade_overlay.gd" id="1_0elae"]
+[ext_resource type="Script" uid="uid://htecme21125j" path="res://ui/overlays/fade_overlay.gd" id="1_0elae"]
 
 [node name="FadeOverlay" type="ColorRect"]
 anchors_preset = 15
@@ -11,4 +11,5 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_0elae")
-fade_in_duration = 1.0
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

@@ -1,3 +1,4 @@
+class_name PauseOverlay
 extends CenterContainer
 
 signal game_exited
@@ -17,21 +18,21 @@ func _ready() -> void:
 	
 func grab_button_focus() -> void:
 	resume_button.grab_focus()
-	
+
 func _resume() -> void:
 	get_tree().paused = false
 	visible = false
-	
-	
+
+
 func _settings() -> void:
 	menu_container.visible = false
 	settings_container.visible = true
 	back_button.grab_focus()
-	
+
 func _exit() -> void:
 	game_exited.emit()
 	get_tree().quit()
-	
+
 func _pause_menu() -> void:
 	settings_container.visible = false
 	menu_container.visible = true

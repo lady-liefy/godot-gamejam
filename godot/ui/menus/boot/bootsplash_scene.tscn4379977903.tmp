@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://ehrvsjvp61gu"]
+
+[ext_resource type="Script" uid="uid://bbe0vxmxcjqea" path="res://scenes/boot/bootsplash_scene.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="2_jq8cw"]
+
+[node name="BootsplashScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="FadeOverlay" parent="." instance=ExtResource("2_jq8cw")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+auto_fade_in = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0

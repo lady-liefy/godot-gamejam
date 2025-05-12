@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://k34apism4nct"]
+
+[ext_resource type="Script" uid="uid://dxky7itw2f2jr" path="res://scenes/world.gd" id="1_nnsk1"]
+[ext_resource type="AudioStream" uid="uid://dlchk3c1baiy8" path="res://music/corgie-title.ogg" id="2_k0juu"]
+[ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="2_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="6_i7141"]
+
+[node name="World" type="Node"]
+script = ExtResource("1_nnsk1")
+
+[node name="Game" type="CanvasLayer" parent="."]
+
+[node name="Menus" type="CanvasLayer" parent="."]
+layer = 5
+follow_viewport_enabled = true
+
+[node name="Music" type="AudioStreamPlayer" parent="Menus"]
+stream = ExtResource("2_k0juu")
+volume_db = 1.0
+bus = &"Music"
+parameters/looping = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 10
+follow_viewport_enabled = true
+
+[node name="PauseOverlay" parent="UI" instance=ExtResource("6_i7141")]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+
+[node name="FadeOverlay" parent="UI" instance=ExtResource("2_rwgxs")]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="child_entered_tree" from="Menus" to="." method="_on_menus_child_entered_tree"]

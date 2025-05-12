@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv2y18ye8j7o0"]
+
+[ext_resource type="Script" uid="uid://dliagnsbgl74" path="res://ui/menus/main_menu_scene.gd" id="1_1foie"]
+[ext_resource type="FontFile" uid="uid://le2vdo2626vw" path="res://ui/fonts/Montserrat-Medium.ttf" id="3_38pve"]
+[ext_resource type="PackedScene" uid="uid://b4blrdjthcxnn" path="res://ui/components/game_logo.tscn" id="4_fnufg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ikbh"]
+font_size = 8
+font_color = Color(1, 1, 1, 0.486275)
+
+[node name="MainMenuScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1foie")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="GameLogo" parent="CenterContainer/VBoxContainer" instance=ExtResource("4_fnufg")]
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "continue"
+
+[node name="NewGameButton" type="Button" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "new_game"
+
+[node name="SettingsButton" type="Button" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "settings"
+
+[node name="ExitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "leave_game"
+
+[node name="Credits" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 10
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Credits"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_38pve")
+text = "credits"
+label_settings = SubResource("LabelSettings_2ikbh")
+horizontal_alignment = 1
+
+[node name="InputBlocker" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

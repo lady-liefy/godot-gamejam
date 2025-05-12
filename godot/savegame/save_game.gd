@@ -8,7 +8,6 @@ const SAVE_GROUP_NAME = "Persist"
 const NODE_DATA = "node_data"
 
 static func delete_save() -> void:
-	
 	if not ENABLED:
 		return
 		

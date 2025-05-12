@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://g4qhvbvdm62w"]
+
+[ext_resource type="Script" uid="uid://bxtiygxllma7e" path="res://ui/menus/game_settings_scene.gd" id="1_3764u"]
+[ext_resource type="PackedScene" uid="uid://nbaodrlopo7y" path="res://ui/components/game_settings.tscn" id="2_qsqie"]
+[ext_resource type="Theme" uid="uid://d22mpqutkotsu" path="res://ui/theme.tres" id="3_unbh4"]
+
+[node name="GameSettingsScene" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_unbh4")
+script = ExtResource("1_3764u")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="SettingsLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "settings"
+
+[node name="GameSettings" parent="CenterContainer/VBoxContainer" instance=ExtResource("2_qsqie")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ApplyButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "apply_settings"
+
+[node name="ReturnButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_unbh4")
+text = "return_to_main"
+
+[node name="InputBlocker" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/ApplyButton" to="." method="_on_apply_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]

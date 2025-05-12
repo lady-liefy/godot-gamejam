@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://ehrvsjvp61gu"]
+
+[ext_resource type="Script" uid="uid://bbe0vxmxcjqea" path="res://ui/menus/boot/bootsplash_scene.gd" id="1_fxqgm"]
+[ext_resource type="PackedScene" uid="uid://cmmr5jbylu08i" path="res://ui/components/godot_logo.tscn" id="2_fxqgm"]
+
+[node name="BootsplashScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fxqgm")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GodotLogo" parent="." instance=ExtResource("2_fxqgm")]
+position = Vector2(320, 180)
